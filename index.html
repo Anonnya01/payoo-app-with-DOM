@@ -11,19 +11,24 @@
     />
     <!-- tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Payoo App</title>
+    <title>Payoo App Login</title>
   </head>
-  <body class="bg-[#F4F5F7] h-[100vh] flex justify-center items-center flex-col">
-    <div class="bg-[url(./assets/bg.png)] h-[130px] w-[300px] bg-cover flex justify-center items-center">
-       <img src="assets/Group.png" alt="">
+  <body
+    class="bg-[#F4F5F7] h-[100vh] flex justify-center items-center flex-col"
+  >
+    <div
+      class="bg-[url(./assets/bg.png)] h-[130px] w-[300px] bg-cover flex justify-center items-center"
+    >
+      <img src="assets/Group.png" alt="" />
     </div>
-    <form class="bg-white rounded-2xl p-8 w-[350px] ">
+    <form class="bg-white rounded-2xl p-8 w-[350px]">
       <div class="">
         <label for="Enter your number">Mobile Number</label>
         <br />
         <input
           type="text"
           placeholder="Enter your number"
+          id="input-num"
           class="input bg-[#F4F5F7] mt-4 rounded-[23px]"
         />
       </div>
@@ -33,10 +38,18 @@
         <input
           type="text"
           placeholder="Enter 4 Digit Pin"
+          id="input-pin"
           class="input bg-[#F4F5F7] mt-4 rounded-[23px]"
         />
       </div>
-      <button class="btn w-full rounded-[23px] bg-[#0874F2] text-white">Login</button>
+      <button
+        id="login-btn"
+        class="btn w-full rounded-[23px] bg-[#0874F2] text-white"
+      >
+        Login
+      </button>
     </form>
+    <!-- js src -->
+    <script src="js/index.js"></script>
   </body>
 </html>
