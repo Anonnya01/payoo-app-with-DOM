@@ -74,7 +74,7 @@
           <img src="assets/send1.png" class="mx-auto" alt="" />
           <h2>Cashout</h2>
         </div>
-        <div class="p-3 mb-2 text-center border-gray-300 border-1 rounded-xl">
+        <div id="transfer-card" class="p-3 mb-2 text-center border-gray-300 border-1 rounded-xl">
           <img src="assets/money1.png" class="mx-auto" alt="" />
           <h2>Transfer Money</h2>
         </div>
@@ -93,7 +93,7 @@
       </div>
     </div>
     <div class="all-form max-w-lg mx-auto mt-[30px] pb-10">
-      <!-- acount form -->
+      <!-- acount add money form -->
       <div id="add-money-box" style="display: none">
         <h1 class="my-4 text-lg font-semibold">Add Money</h1>
         <form class="p-8 bg-white rounded-2xl">
@@ -154,7 +154,7 @@
 
       <!-- Cash out form -->
 
-      <div id="cashout-box">
+      <div id="cashout-box"  >
         <h1 class="my-4 text-lg font-semibold">Cash Out</h1>
         <form class="p-8 bg-white rounded-2xl">
           <!-- bank agent number -->
@@ -163,6 +163,7 @@
             <br />
             <input
               type="text"
+              id="out-number"
               placeholder="Enter 11 digit number"
              
               class="input bg-[#F4F5F7] mt-4 rounded-[23px] w-full"
@@ -185,6 +186,7 @@
             <br />
             <input
               type="text"
+              id="out-pin"
               placeholder="Enter 4 digit pin number"
               
               class="input bg-[#F4F5F7] mt-4 rounded-[23px] w-full"
@@ -195,6 +197,141 @@
             class="btn w-full rounded-[23px] bg-[#0874F2] text-white mt-4"
           >
             Withdraw Money
+          </button>
+        </form>
+      </div>
+      
+      <!-- transfer form -->
+
+       <div id="teansfer-box" style="display: none;">
+        <h1 class="my-4 text-lg font-semibold">Transfer Money</h1>
+        <form class="p-8 bg-white rounded-2xl">
+          <!-- bank transfer number -->
+          <div class="mt-3 font-medium text-xs text-[#080808B2]">
+            <label for=" 11 digit account number">User Account Number</label>
+            <br />
+            <input
+              type="text"
+              id="out-number"
+              placeholder="Enter 11 digit number"
+             
+              class="input bg-[#F4F5F7] mt-4 rounded-[23px] w-full"
+            />
+          </div>
+          <!-- Amount transfer -->
+          <div class="my-3 font-medium text-xs text-[#080808B2]">
+            <label for="Amount to withdraw">Amount</label>
+            <br />
+            <input
+              type="text"
+              placeholder="Enter amount to transfer"
+              id="amount-withdraw"
+              class="input bg-[#F4F5F7] mt-4 rounded-[23px] w-full"
+            />
+          </div>
+          <!-- bank pin -->
+          <div class="font-medium text-xs text-[#080808B2]">
+            <label for=" pin number">Pin Number</label>
+            <br />
+            <input
+              type="text"
+              id="transfer"
+              placeholder="Enter 4 digit pin number"
+              
+              class="input bg-[#F4F5F7] mt-4 rounded-[23px] w-full"
+            />
+          </div>
+          <button
+            id="btn-transfer"
+            class="btn w-full rounded-[23px] bg-[#0874F2] text-white mt-4"
+          >
+            Send Now
+          </button>
+        </form>
+      </div>
+
+      <!-- bonus form -->
+         <div id="bonus-box" style="display: none;">
+        <h1 class="my-4 text-lg font-semibold">Get Bonus</h1>
+        <form class="p-8 bg-white rounded-2xl">
+         
+          <!-- Bonus form -->
+          <div class="my-3 font-medium text-xs text-[#080808B2]">
+            <label for="Amount to withdraw">Enter Bonus Coupon</label>
+            <br />
+            <input
+              type="text"
+              placeholder="Enter your coupon"
+             
+              class="input bg-[#F4F5F7] mt-4 rounded-[23px] w-full"
+            />
+          </div>
+          
+          <button
+            id="btn-bonus"
+            class="btn w-full rounded-[23px] bg-[#0874F2] text-white mt-4"
+          >
+           Get Bonus
+          </button>
+        </form>
+      </div>
+
+      <!-- Pay Bill form -->
+       
+      <div id="pay-bill-box" style="display: none;">
+        <h1 class="my-4 text-lg font-semibold">Pay Bill</h1>
+        <form class="p-8 bg-white rounded-2xl">
+          <!-- bank selection -->
+          <div>
+            <h1 class="text-xs font-medium text-[#080808B2]">Select To Pay</h1>
+            <select
+              id="bill-bank"
+              class="select bg-[#F4F5F7] mt-3 rounded-3xl w-full"
+            >
+              <option>Select back</option>
+              <option>ABIL Bank</option>
+              <option>BRAC Bank</option>
+              <option>AB Bank</option>
+            </select>
+          </div>
+          <!-- biller account number -->
+          <div class="mt-3 font-medium text-xs text-[#080808B2]">
+            <label for=" 11 digit account number">Biller Account Number</label>
+            <br />
+            <input
+              type="text"
+              placeholder="Enter account number"
+              id="biller-number"
+              class="input bg-[#F4F5F7] mt-4 rounded-[23px] w-full"
+            />
+          </div>
+          <!-- Amount pay -->
+          <div class="my-3 font-medium text-xs text-[#080808B2]">
+            <label for="Amount to withdraw">Amount to Pay</label>
+            <br />
+            <input
+              type="text"
+              placeholder="Add Amount to pay"
+              
+              class="input bg-[#F4F5F7] mt-4 rounded-[23px] w-full"
+            />
+          </div>
+          <!-- bank pin -->
+          <div class="font-medium text-xs text-[#080808B2]">
+            <label for=" pin number">Pin Number</label>
+            <br />
+            <input
+              type="text"
+              placeholder="Enter 4 digit pin number"
+             
+              class="input bg-[#F4F5F7] mt-4 rounded-[23px] w-full"
+            />
+          </div>
+          <button
+            id="btn-bill-money"
+            class="btn w-full rounded-[23px] bg-[#0874F2] text-white mt-4"
+          >
+           Pay Now
           </button>
         </form>
       </div>
