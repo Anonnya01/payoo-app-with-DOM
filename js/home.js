@@ -31,3 +31,15 @@ document
     const newAmountBalance = addedAmount + availableCash;
     document.getElementById("available-cash").innerText = newAmountBalance;
   });
+
+
+//  --------toggling Features------------//
+
+document.getElementById("add-card").addEventListener('click',function(){
+   document.getElementById("cashout-box").style.display ="none"
+   document.getElementById("add-money-box").style.display ="block"
+})
+document.getElementById("cashout-card").addEventListener('click',function(){
+   document.getElementById("add-money-box").style.display ="none"
+   document.getElementById("cashout-box").style.display ="block"
+})
