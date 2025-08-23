@@ -33,6 +33,17 @@ function getUpdatedText(value) {
   finalCash.innerText = value;
 }
 
+// -------------toggle function---------//
+
+function toggleBox(id) {
+  const form = document.getElementsByClassName("forms");
+
+  for (const box of form) {
+    box.style.display = "none";
+  }
+  document.getElementById(id).style.display = "block";
+}
+
 // ---------ADD MONEY------//
 document
   .getElementById("btn-add-money")
@@ -94,13 +105,24 @@ document.getElementById("btn-cashout").addEventListener("click", function (e) {
 
 // ------------------End------------//
 
-//  --------toggling Features------------//
+// ---------------toggle with reused function------------//
 
 document.getElementById("add-card").addEventListener("click", function () {
-  document.getElementById("cashout-box").style.display = "none";
-  document.getElementById("add-money-box").style.display = "block";
+  toggleBox("add-money-box");
 });
+
 document.getElementById("cashout-card").addEventListener("click", function () {
-  document.getElementById("add-money-box").style.display = "none";
-  document.getElementById("cashout-box").style.display = "block";
+  toggleBox("cashout-box");
+});
+
+document.getElementById("transfer-card").addEventListener("click", function () {
+  toggleBox("transfer-box");
+});
+
+document.getElementById("bonus-card").addEventListener("click", function () {
+  toggleBox("bonus-box");
+});
+
+document.getElementById("bill-card").addEventListener("click", function () {
+  toggleBox("pay-bill-box");
 });
