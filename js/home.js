@@ -1,19 +1,51 @@
 //------------Get input values for add money ----------//
 const validPin = 1234;
 const validOutPin = 2222;
+
+// ------reuse function--Convert to num--//
+
+function getInputNum(id) {
+  const inputField = document.getElementById(id);
+  const inputFieldValue = inputField.value;
+  const intValue = parseInt(inputFieldValue);
+  return intValue;
+}
+
+//-----reuse function--get input--//
+function getInputValues(id) {
+  const inputField = document.getElementById(id);
+  const inputFieldValue = inputField.value;
+  return inputFieldValue;
+}
+
+// ------inner text----------//
+function getInnerText(id) {
+  const element = document.getElementById(id);
+  const elementVal = element.innerText;
+  const elementValueNum = parseInt(elementVal);
+  return elementValueNum;
+}
+
+//  -------update inner text-------//
+
+function getUpdatedText(value) {
+  const finalCash = document.getElementById("available-cash");
+  finalCash.innerText = value;
+}
+
+// ---------ADD MONEY------//
 document
   .getElementById("btn-add-money")
   .addEventListener("click", function (e) {
     e.preventDefault();
     console.log("clicked");
-    const banks = document.getElementById("select-bank").value;
+    const banks = getInputValues("select-bank");
     const accountNum = document.getElementById("bank-number").value;
-    const addedAmount = parseInt(document.getElementById("amount-added").value);
-    const bankPin = parseInt(document.getElementById("bank-pin").value);
+    const addedAmount = getInputNum("amount-added");
 
-    const availableCash = parseInt(
-      document.getElementById("available-cash").innerText
-    );
+    const bankPin = getInputNum("bank-pin");
+
+    const availableCash = getInnerText("available-cash");
 
     // -------conditions for checking-------//
     if (accountNum.length < 11) {
@@ -29,7 +61,8 @@ document
 
     //  --------amount after addition-----//
     const newAmountBalance = addedAmount + availableCash;
-    document.getElementById("available-cash").innerText = newAmountBalance;
+
+    getUpdatedText(newAmountBalance);
   });
 // --------------------------End---------------------//
 
@@ -39,11 +72,9 @@ document.getElementById("btn-cashout").addEventListener("click", function (e) {
   e.preventDefault();
 
   const outNumber = document.getElementById("out-number").value;
-  const amount = parseInt(document.getElementById("amount-withdraw").value);
+  const amount = getInputNum("amount-withdraw");
   const bankOutPin = parseInt(document.getElementById("out-pin").value);
-  const availableBalance = parseInt(
-    document.getElementById("available-cash").innerText
-  );
+  const availableBalance = getInnerText("available-cash");
 
   // -------conditions for checking-------//
   if (outNumber.length < 11) {
@@ -57,7 +88,8 @@ document.getElementById("btn-cashout").addEventListener("click", function (e) {
 
   console.log(amount, availableBalance);
   const newAvailableCash = availableBalance - amount;
-  document.getElementById("available-cash").innerText = newAvailableCash;
+
+  getUpdatedText(newAvailableCash);
 });
 
 // ------------------End------------//
