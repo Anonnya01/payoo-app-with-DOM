@@ -62,31 +62,31 @@
       >
         <div
           id="add-card"
-          class="p-3 mb-2 text-center border-gray-300 border-1 rounded-xl"
+          class="p-3 mb-2 text-center border-gray-300 border-1 rounded-xl form-btn"
         >
           <img src="assets/wallet1.png" class="mx-auto" alt="" />
           <h2>Add Money</h2>
         </div>
         <div
           id="cashout-card"
-          class="p-3 mb-2 text-center border-gray-300 border-1 rounded-xl"
+          class="p-3 mb-2 text-center border-gray-300 border-1 rounded-xl form-btn"
         >
           <img src="assets/send1.png" class="mx-auto" alt="" />
           <h2>Cashout</h2>
         </div>
-        <div id="transfer-card" class="p-3 mb-2 text-center border-gray-300 border-1 rounded-xl">
+        <div id="transfer-card" class="p-3 mb-2 text-center border-gray-300 border-1 rounded-xl form-btn">
           <img src="assets/money1.png" class="mx-auto" alt="" />
           <h2>Transfer Money</h2>
         </div>
-        <div id="bonus-card" class="p-3 mb-2 text-center border-gray-300 border-1 rounded-xl">
+        <div id="bonus-card" class="p-3 mb-2 text-center border-gray-300 border-1 rounded-xl form-btn">
           <img src="assets/bonus1.png" class="mx-auto" alt="" />
           <h2>Get Bonus</h2>
         </div>
-        <div id="bill-card" class="p-3 mb-2 text-center border-gray-300 border-1 rounded-xl">
+        <div id="bill-card" class="p-3 mb-2 text-center border-gray-300 border-1 rounded-xl form-btn">
           <img src="assets/purse1.png" class="mx-auto" alt="" />
           <h2>Pay Bill</h2>
         </div>
-        <div class="p-3 mb-2 text-center border-gray-300 border-1 rounded-xl">
+        <div id="transaction-card" class="p-3 mb-2 text-center border-gray-300 border-1 rounded-xl form-btn">
           <img src="assets/transaction1.png" class="mx-auto" alt="" />
           <h2>Transactions</h2>
         </div>
@@ -154,7 +154,7 @@
 
       <!-- Cash out form -->
 
-      <div id="cashout-box" class="forms"  >
+      <div id="cashout-box" class="forms" style="display: none;" >
         <h1 class="my-4 text-lg font-semibold">Cash Out</h1>
         <form class="p-8 bg-white rounded-2xl">
           <!-- bank agent number -->
@@ -335,6 +335,22 @@
           </button>
         </form>
       </div>
+
+      <!-- transaction -->
+
+       <div id="transaction-box" class="forms" >
+        <div class="flex items-center justify-between"><h1 class="my-4 text-lg font-semibold">Transactions</h1>
+          <p class="p-1 text-[#08080880] text-sm bg-white">View All</p>
+        </div>
+          
+         <div id="transaction-output">
+          
+         </div>
+
+          
+        
+      </div>
+      
     </div>
     <script src="js/home.js"></script>
   </body>
