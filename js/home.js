@@ -1,7 +1,13 @@
 //------------Get input values for add money ----------//
 const validPin = 1234;
 const validOutPin = 2222;
-const transaction = []
+const transaction = [];
+
+// ---------logout----------//
+document.getElementById("logout-btn").addEventListener("click", function (e) {
+  e.preventDefault;
+  window.location.href = "../index.html";
+});
 
 // ------reuse function--Convert to num--//
 
@@ -69,6 +75,12 @@ document
     const accountNum = document.getElementById("bank-number").value;
     const addedAmount = getInputNum("amount-added");
 
+    // ------checking------//
+    if (addedAmount <= 0) {
+      alert("invalid amount");
+      return;
+    }
+
     const bankPin = getInputNum("bank-pin");
 
     const availableCash = getInnerText("available-cash");
@@ -91,15 +103,14 @@ document
     getUpdatedText(newAmountBalance);
 
     // ----------transaction-----------//
-      const data ={
-        name: "Add Money",
-        date:new Date().toLocaleTimeString()
-      }
-      transaction.push(data)
-      console.log(transaction);
+    const data = {
+      name: "Add Money",
+      date: new Date().toLocaleTimeString(),
+    };
+    transaction.push(data);
+    console.log(transaction);
   });
 // --------------------------End---------------------//
-
 
 // -------------CASH OUT features----------//
 
@@ -110,6 +121,12 @@ document.getElementById("btn-cashout").addEventListener("click", function (e) {
   const amount = getInputNum("amount-withdraw");
   const bankOutPin = getInputNum("out-pin");
   const availableBalance = getInnerText("available-cash");
+
+  // ------checking------//
+  if (amount >= availableBalance || amount <= 0) {
+    alert("Insufficient amount");
+    return;
+  }
 
   // -------conditions for checking-------//
   if (outNumber.length < 11) {
@@ -129,28 +146,26 @@ document.getElementById("btn-cashout").addEventListener("click", function (e) {
 
   getUpdatedText(newAvailableCash);
 
-   // ----------transaction-----------//
-      const data ={
-        name: "Cash Out Money",
-        date:new Date().toLocaleTimeString()
-      }
-      transaction.push(data)
+  // ----------transaction-----------//
+  const data = {
+    name: "Cash Out Money",
+    date: new Date().toLocaleTimeString(),
+  };
+  transaction.push(data);
 
-      console.log(transaction);
-      
+  console.log(transaction);
 });
 
-
 // ------------transaction features----------//
-document.getElementById("transaction-card")
-.addEventListener('click',function () {
-  
-  const dataView= document.getElementById("transaction-output")
+document
+  .getElementById("transaction-card")
+  .addEventListener("click", function () {
+    const dataView = document.getElementById("transaction-output");
 
-  dataView.innerHTML =""
-  for(const data of transaction){
-    const div = document.createElement("div")
-    div.innerHTML =`
+    dataView.innerHTML = "";
+    for (const data of transaction) {
+      const div = document.createElement("div");
+      div.innerHTML = `
      <div class="flex items-center justify-between p-4 mb-4 bg-white border-gray-300 border-1 rounded-xl">
             
             <div class="flex items-center gap-3">
@@ -167,24 +182,19 @@ document.getElementById("transaction-card")
               <img src="assets/Frame.png" alt="">
             </div>
           </div>
-    `
+    `;
 
-    dataView.appendChild(div)
-  }
-  
-})
-
+      dataView.appendChild(div);
+    }
+  });
 
 // ------------------End------------//
 
-
 // ---------------toggle with reused function-----------//
-
 
 // -------Add-card-----------//
 
 document.getElementById("add-card").addEventListener("click", function () {
-
   toggleBox("add-money-box");
 
   toggleCard("add-card");
@@ -193,7 +203,6 @@ document.getElementById("add-card").addEventListener("click", function () {
 // --------cash out-----------//
 
 document.getElementById("cashout-card").addEventListener("click", function () {
-
   toggleBox("cashout-box");
 
   toggleCard("cashout-card");
@@ -202,7 +211,6 @@ document.getElementById("cashout-card").addEventListener("click", function () {
 // -------------transfer------//
 
 document.getElementById("transfer-card").addEventListener("click", function () {
-
   toggleBox("transfer-box");
 
   toggleCard("transfer-card");
@@ -211,7 +219,6 @@ document.getElementById("transfer-card").addEventListener("click", function () {
 // -------bonus-----------//
 
 document.getElementById("bonus-card").addEventListener("click", function () {
-
   toggleBox("bonus-box");
 
   toggleCard("bonus-card");
@@ -220,7 +227,6 @@ document.getElementById("bonus-card").addEventListener("click", function () {
 // -------------bill-----------//
 
 document.getElementById("bill-card").addEventListener("click", function () {
-
   toggleBox("pay-bill-box");
 
   toggleCard("bill-card");
@@ -228,9 +234,10 @@ document.getElementById("bill-card").addEventListener("click", function () {
 
 // -----------transaction-------------//
 
-document.getElementById("transaction-card").addEventListener("click", function () {
+document
+  .getElementById("transaction-card")
+  .addEventListener("click", function () {
+    toggleBox("transaction-box");
 
-  toggleBox("transaction-box");
-
-  toggleCard("transaction-card");
-});
+    toggleCard("transaction-card");
+  });
